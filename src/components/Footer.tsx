@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, ExternalLink } from "lucide-react";
 import { IoLogoInstagram } from "react-icons/io5";
 
 interface FooterProps {
-    logoPath?: string; // Propriedade para receber a logo do Astro
+    logoPath?: string;
 }
 
 const links = [
@@ -35,7 +35,6 @@ export default function Footer({ logoPath }: FooterProps) {
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
-                    {/* Coluna 1: Logo e Sócios Proprietários */}
                     <div className="flex flex-col gap-6">
                         {logoPath && (
                             <img
@@ -54,7 +53,6 @@ export default function Footer({ logoPath }: FooterProps) {
                         </div>
                     </div>
 
-                    {/* Coluna 2: Navegação */}
                     <div className="flex flex-col gap-6">
                         <h4 className="text-white font-medium text-sm uppercase tracking-widest">Navegação</h4>
                         <nav className="flex flex-col gap-3">
@@ -72,7 +70,6 @@ export default function Footer({ logoPath }: FooterProps) {
                         </nav>
                     </div>
 
-                    {/* Coluna 3: Contatos */}
                     <div className="flex flex-col gap-6">
                         <h4 className="text-white font-medium text-sm uppercase tracking-widest">Contatos</h4>
                         <div className="flex flex-col gap-4">
@@ -111,7 +108,6 @@ export default function Footer({ logoPath }: FooterProps) {
                         </div>
                     </div>
 
-                    {/* Coluna 4: Branding */}
                     <div className="flex flex-col gap-6">
                         <h4 className="text-white font-medium text-sm uppercase tracking-widest">Excelência</h4>
                         <p className="text-white/40 text-sm leading-relaxed italic font-serif">
@@ -121,7 +117,6 @@ export default function Footer({ logoPath }: FooterProps) {
                     </div>
                 </div>
 
-                {/* Copyright */}
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-white/30 text-[11px] tracking-wider uppercase">
                         © {new Date().getFullYear()} DNV Advocacia. Todos os direitos reservados.

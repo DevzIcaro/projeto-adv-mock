@@ -24,7 +24,6 @@ export default function Hero({ imagePath }: HeroProps) {
             id="hero"
             className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-24 px-6 bg-black"
         >
-            {/* --- CAMADA DE IMAGEM DE FUNDO --- */}
             <div className="absolute inset-0 z-0">
                 <img 
                     src={imagePath || "./src/assets/hbg-hero.jpg"} 
@@ -77,7 +76,6 @@ export default function Hero({ imagePath }: HeroProps) {
                     className="h-px w-32 bg-gradient-to-r from-transparent via-[#C6A24C] to-transparent mb-8"
                 />
 
-                {/* Subtítulo */}
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -87,7 +85,7 @@ export default function Hero({ imagePath }: HeroProps) {
                     Unindo mais de duas décadas de rigor técnico e atuação estratégica corporativa e familiar. Soluções de alta complexidade em Família, Sucessões, Empresarial e Tributário.
                 </motion.p>
 
-                {/* CTAs */}
+
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -117,7 +115,6 @@ export default function Hero({ imagePath }: HeroProps) {
                 </motion.div>
             </div>
 
-            {/* Gradiente Inferior para Transição */}
             <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0a0a0b] to-transparent z-[2] pointer-events-none" />
         </section>
     );

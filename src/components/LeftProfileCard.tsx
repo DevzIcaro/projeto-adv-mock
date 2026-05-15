@@ -20,7 +20,6 @@ export default function LeftProfileCard({
     <section className="w-full py-16 px-4 flex justify-center bg-black">
       <div className="w-full max-w-6xl flex flex-col md:flex-row bg-[#0a0a0b] border border-white/10 shadow-2xl overflow-hidden min-h-[550px]">
         
-        {/* Lado Esquerdo: Imagem com Corte Diagonal Rígido */}
         <div className="w-full md:w-5/12 relative overflow-hidden bg-[#0c0c0d]">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
@@ -29,7 +28,7 @@ export default function LeftProfileCard({
             transition={{ duration: 0.8 }}
             className="h-full w-full"
             style={{
-              clipPath: "polygon(0 0, 100% 0, 85% 100%, 0% 100%)" // Corte inclinado reto para rigidez
+              clipPath: "polygon(0 0, 100% 0, 85% 100%, 0% 100%)"
             }}
           >
             <img 
@@ -37,15 +36,12 @@ export default function LeftProfileCard({
               alt={name}
               className="h-full w-full object-cover grayscale-[30%] contrast-110 brightness-90"
             />
-            {/* Overlay sutil para integração de cor */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </motion.div>
         </div>
 
-        {/* Lado Direito: Conteúdo em Divs Separadas */}
         <div className="w-full md:w-7/12 flex flex-col justify-center p-8 md:p-16 space-y-8">
           
-          {/* Div do Nome e Título */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +56,6 @@ export default function LeftProfileCard({
             </p>
           </motion.div>
 
-          {/* Div da Descrição Técnico-Profissional */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +68,6 @@ export default function LeftProfileCard({
             </p>
           </motion.div>
 
-          {/* Div da Mensagem/Aspas (A "Caixa de Vidro") */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

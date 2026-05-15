@@ -3,13 +3,12 @@ import { MessageCircle } from "lucide-react";
 import { TbMapPin } from "react-icons/tb";
 import { FiMail } from "react-icons/fi";
 
-// Imports originais para fallback
 import imgCarlos from "../assets/adv4.jpg";
 import imgMariana from "../assets/advogada1.jpg";
 import imgRicardo from "../assets/adv3.jpg";
 
 interface AssociateProps {
-    imagePath?: string[]; // Array de strings vindo do Astro
+    imagePath?: string[];
 }
 
 const lawyers = [
@@ -59,9 +58,6 @@ export default function AssociateCards({ imagePath }: AssociateProps) {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {lawyers.map((lawyer, index) => {
-                        // Lógica de troca baseada no índice:
-                        // 1. Tenta usar imagePath[index] (passado via prop)
-                        // 2. Se não existir, usa lawyer.defaultImage.src (import local)
                         const currentImage = (imagePath && imagePath[index]) 
                             ? imagePath[index] 
                             : lawyer.defaultImage.src;

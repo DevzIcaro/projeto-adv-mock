@@ -41,7 +41,6 @@ const focusAreas = [
 
 export default function FocusAreasGrid() {
   return (
-    /* GRADIENTE UNIFORME: Sincronizado com o ecossistema escuro do site */
     <section id="areas" className="w-full py-24 px-4 bg-black">
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-20">
@@ -51,7 +50,6 @@ export default function FocusAreasGrid() {
           <div className="w-24 h-1 bg-[#C6A24C] mx-auto opacity-50 rounded-full" />
         </header>
 
-        {/* GRID: Centralizado para garantir que os 7 cards fiquem alinhados mesmo em números ímpares */}
         <div className="flex flex-wrap justify-center gap-8">
           {focusAreas.map((area, index) => (
             <motion.div
@@ -61,10 +59,8 @@ export default function FocusAreasGrid() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               whileHover={{ y: -10 }}
-              /* CARD: Sem fundo sólido para permitir a visão do gradiente da seção */
               className="w-full flex flex-col sm:w-[380px] bg-white/[0.02] backdrop-blur-md border border-[#C6A24C]/20 p-8 rounded-[40px] shadow-2xl transition-all duration-500 group hover:border-[#C6A24C]/60"
             >
-              {/* ÍCONE ENCAPSULADO: Círculo dourado */}
               <div className="flex justify-center">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#C6A24C] to-[#8c6d2e] flex items-center justify-center mb-8 shadow-lg shadow-[#C6A24C]/10 text-black group-hover:scale-110 transition-transform">
                   {area.icon}

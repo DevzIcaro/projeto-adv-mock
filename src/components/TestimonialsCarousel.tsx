@@ -34,7 +34,7 @@ export default function TestimonialsGrid() {
         background: "linear-gradient(360deg, #000000 0%, #0a0a0b 100%)"
       }}
     >
-      {/* Título da Seção */}
+
       <header className="text-center mb-16">
         <h2 className="text-[#C6A24C] text-sm font-bold tracking-[0.2em] uppercase mb-2">
           Depoimentos
@@ -45,7 +45,6 @@ export default function TestimonialsGrid() {
         <div className="w-24 h-1 bg-[#C6A24C] mx-auto mt-6 opacity-50 rounded-full" />
       </header>
 
-      {/* Container do Grid Responsivo */}
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((item, index) => (
@@ -58,22 +57,11 @@ export default function TestimonialsGrid() {
               whileHover={{ y: -10 }}
               className="relative bg-[#0c0c0d]/60 backdrop-blur-xl border border-[#C6A24C]/20 p-8 rounded-[30px] flex flex-col h-full shadow-2xl group transition-all duration-300 hover:border-[#C6A24C]/60"
             >
-              {/* Ícone de Aspas Decorativo */}
-              <Quote className="absolute top-6 right-8 text-[#C6A24C] opacity-40 w-8 h-8 group-hover:opacity-10 transition-opacity" />
 
-              {/* Estrelas */}
-              <div className="flex gap-1 mb-6">
-                {[...Array(item.rating)].map((_, i) => (
-                  <Star key={i} size={15} className="fill-[#C6A24C] text-[#C6A24C]" />
-                ))}
-              </div>
-
-              {/* Texto da Avaliação */}
               <p className="text-slate-300 text-sm leading-relaxed mb-8 flex-grow font-light italic">
                 "{item.content}"
               </p>
 
-              {/* Assinatura */}
               <div className="mt-auto border-t border-white/5 pt-6">
                 <p className="text-[#C6A24C] font-bold font-serif text-base tracking-wide">
                   {item.name}
@@ -83,7 +71,6 @@ export default function TestimonialsGrid() {
                 </p>
               </div>
 
-              {/* Efeito sutil de gradiente interno no hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#C6A24C]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[30px] pointer-events-none" />
             </motion.div>
           ))}

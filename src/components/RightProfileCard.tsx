@@ -17,15 +17,12 @@ export default function RightProfileCard({
     imagePath = "../src/assets/adv1.jpg"
 }: ProfileCardProps) {
     return (
-        /* SECTION: Ajustado para o fundo preto puro e transição sutil, mantendo a sobriedade sênior */
         <section className="w-full py-16 px-4 flex justify-center bg-black">
             
             <div className="w-full max-w-6xl flex flex-col md:flex-row bg-[#0a0a0b] border border-white/10 shadow-2xl overflow-hidden min-h-[550px] rounded-xl">
 
-                {/* LADO ESQUERDO: Conteúdo Textual */}
                 <div className="w-full md:w-7/12 flex flex-col justify-center p-8 md:p-16 space-y-8 order-2 md:order-1">
 
-                    {/* Nome e Título */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -40,7 +37,6 @@ export default function RightProfileCard({
                         </p>
                     </motion.div>
 
-                    {/* Descrição Técnica */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -53,7 +49,6 @@ export default function RightProfileCard({
                         </p>
                     </motion.div>
 
-                    {/* Caixa de Mensagem (Vidro) */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +62,6 @@ export default function RightProfileCard({
                     </motion.div>
                 </div>
 
-                {/* LADO DIREITO: Imagem com Corte Inclinado */}
                 <div className="w-full md:w-5/12 relative overflow-hidden order-1 md:order-2 bg-[#0c0c0d]">
                     <motion.div
                         initial={{ opacity: 0, scale: 1.1 }}
@@ -84,7 +78,6 @@ export default function RightProfileCard({
                             alt={name}
                             className="h-full w-full object-cover grayscale-[20%] contrast-110 brightness-90"
                         />
-                        {/* Vinheta lateral para suavizar a transição com o texto */}
                         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
                     </motion.div>
                 </div>
