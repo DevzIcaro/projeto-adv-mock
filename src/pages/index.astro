@@ -12,6 +12,11 @@ import Footer from "@/components/Footer";
 // Importação das imagens locais da pasta src/assets
 import imgMarcus from "../assets/adv2.jpg";
 import imgRenato from "../assets/adv1.jpg";
+import imgCarlos from "../assets/adv4.jpg";
+import imgMariana from "../assets/advogada1.jpg";
+import imgRicardo from "../assets/adv3.jpg";
+import imgLogo from	"../assets/logo.png";
+
 
 import CardLinks from "@/components/CardLinks";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
@@ -20,7 +25,7 @@ import AssociateCards from "@/components/Associates";
 ---
 
 <Layout>
-  <Navbar client:load />
+  <Navbar client:load imagePath={imgLogo.src} />
   <main>
     <div id="hero">
       <Hero client:load />
@@ -29,8 +34,8 @@ import AssociateCards from "@/components/Associates";
     <div id="sobre">
       <AboutUs client:load />
     </div>
-    
-	<div id="advogados">
+
+    <div id="advogados">
       <LeftProfileCard
         client:load
         name="Dr. Marcus Vinícius Toledo"
@@ -67,7 +72,7 @@ import AssociateCards from "@/components/Associates";
     </div>
 
     <div id="associados">
-      <AssociateCards client:load />
+      <AssociateCards client:load imagePath={[imgCarlos.src, imgMariana.src, imgRicardo.src]} />
     </div>
 
     <Footer client:load />

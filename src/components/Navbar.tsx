@@ -3,6 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+interface NavBarProps {
+  imagePath?: string;
+}
+
 const links = [
     { name: "Home", href: "#hero" },
     { name: "Sobre Nós", href: "#sobre" },
@@ -14,7 +18,7 @@ const links = [
     { name: "Associados", href: "#associados" },
 ];
 
-export default function Navbar() {
+export default function Navbar({imagePath = "./src/assets/logo.png"}: NavBarProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -60,7 +64,7 @@ export default function Navbar() {
                 {/* Logo */}
                 <a href="#hero" onClick={(e) => scrollToSection(e, "#hero")} className="relative z-[201]">
                     <img 
-                        src="./src/assets/logo.png" 
+                        src={imagePath} 
                         alt="Toledo & Alencar Advocacia Sênior" 
                         className="h-10 md:h-12 w-auto object-contain transition-transform hover:scale-105"
                     />
