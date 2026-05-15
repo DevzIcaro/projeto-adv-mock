@@ -45,7 +45,7 @@ export default function CardLinks({ links = defaultLinks, backgroundImage = defa
         )}
         <div 
           className="absolute inset-0" 
-          style={{ background: "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,1) 100%)" }}
+          style={{ background: "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 90%, rgba(0,0,0,1) 100%)" }}
         />
       </div>
 
