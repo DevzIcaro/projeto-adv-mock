@@ -40,7 +40,7 @@ export default function CardLinks({ links = defaultLinks, backgroundImage = defa
           <img 
             src={backgroundImage} 
             alt="Background" 
-            className="w-full h-full object-cover opacity-30" 
+            className="w-full h-full object-cover opacity-80" 
           />
         )}
         <div 
