@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, BookOpenText } from "lucide-react";
 
 interface LinkCardProps {
-  backgroundImage?: string; // Prop para a URL da imagem
+  backgroundImage?: string;
   links?: {
     title: string;
     description: string;
@@ -18,7 +18,6 @@ const defaultLinks = [
     description: "Entenda os riscos jurídicos e como se proteger em transações imobiliárias informais.",
     icon: <BookOpenText className="w-8 h-8" />,
     href: "/files/contrato-gaveta.pdf",
-    target:"_blank",
     isDownload: true,
   },
   {
@@ -26,32 +25,41 @@ const defaultLinks = [
     description: "Análise sobre direitos e deveres na configuração familiar contemporânea.",
     icon: <BookOpenText className="w-8 h-8" />,
     href: "/artigos/uniao-estavel",
-    target:"_blank",
   },
-  // ... outros links
 ];
 
 export default function CardLinks({ 
   links = defaultLinks, 
-  backgroundImage = "./src/assets/biblioteca.jpg" // Defina sua imagem padrão aqui
+  backgroundImage 
 }: LinkCardProps) {
   return (
-    <section className="relative w-full py-24 px-4 overflow-hidden">
-      {/* 1. Imagem de Fundo */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      />
+    <section className="relative w-full py-24 px-4 overflow-hidden bg-black">
       
-      {/* 2. Overlay de Gradiente para escurecer a imagem e dar profundidade */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/90 via-black/70 to-[#C6A24C]/30" />
+      {/* --- CAMADA DE IMAGEM DE FUNDO --- */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={backgroundImage || "./src/assets/biblioteca.jpg"} 
+          alt="Background" 
+          className="w-full h-full object-cover opacity-30" 
+        />
+        {/* Overlay para suavizar a transição e garantir contraste */}
+        <div 
+          className="absolute inset-0" 
+          style={{
+            background: "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,1) 100%)"
+          }}
+        />
+      </div>
 
       <div className="relative z-20 max-w-7xl mx-auto">
         <header className="text-center mb-16">
-          <h2 className="text-[#C6A24C] text-4xl md:text-5xl font-serif font-bold mb-4 italic">
-            Links e Documentos
+          <h2 className="text-[#C6A24C] text-sm font-bold tracking-[0.3em] uppercase mb-4">
+            Recursos e Artigos
           </h2>
-          <div className="w-24 h-1 bg-[#C6A24C] mx-auto opacity-50 rounded-full" />
+          <h3 className="text-white text-4xl md:text-5xl font-serif font-bold italic drop-shadow-lg">
+            Links e Documentos
+          </h3>
+          <div className="w-24 h-1 bg-[#C6A24C] mx-auto mt-6 opacity-50 rounded-full" />
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -61,22 +69,22 @@ export default function CardLinks({
               href={link.href}
               target={link.isDownload ? "_self" : "_blank"}
               download={link.isDownload}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02, backgroundColor: "rgba(0, 0, 0, 0.6)" }}
-              className="flex items-center gap-6 bg-black/50 backdrop-blur-md border border-[#C6A24C]/30 p-6 md:p-8 rounded-[30px] transition-all duration-300 group"
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center gap-6 bg-[#0a0a0b]/80 backdrop-blur-md border border-white/10 p-6 md:p-8 rounded-[30px] transition-all duration-300 group hover:border-[#C6A24C]/40 hover:shadow-[0_10px_30px_rgba(198,162,76,0.1)]"
             >
-              <div className="text-[#C6A24C] group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+              <div className="text-[#C6A24C] group-hover:scale-110 transition-transform duration-300 flex-shrink-0 bg-white/5 p-4 rounded-2xl">
                 {link.icon}
               </div>
 
               <div className="flex flex-col">
-                <h3 className="text-[#C6A24C] text-xl font-bold font-serif group-hover:underline">
+                <h3 className="text-white text-xl font-bold font-serif group-hover:text-[#C6A24C] transition-colors">
                   {link.title}
                 </h3>
-                <p className="text-slate-300 text-sm leading-relaxed italic mt-1">
+                <p className="text-slate-400 text-sm leading-relaxed mt-1">
                   {link.description}
                 </p>
               </div>

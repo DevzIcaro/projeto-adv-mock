@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { MessageCircle, ShieldCheck, ArrowRight } from "lucide-react";
 
-export default function Hero() {
+interface HeroProps {
+    imagePath?: string;
+}
+
+export default function Hero({ imagePath }: HeroProps) {
     const whatsappUrl = "https://wa.me/5517";
 
     const scrollToContact = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -18,17 +22,29 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-24 px-6"
-            style={{
-                background: "radial-gradient(circle at 50% 30%, #1a1a1a 0%, #000000 100%)"
-            }}
+            className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-24 px-6 bg-black"
         >
-            {/* Linhas de Grade de Fundo Sutis (Visual Premium) */}
-            <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px]" />
+            {/* --- CAMADA DE IMAGEM DE FUNDO --- */}
+            <div className="absolute inset-0 z-0">
+                <img 
+                    src={imagePath || "./src/assets/hbg-hero.jpg"} 
+                    alt="Escritório de Advocacia" 
+                    className="w-full h-full object-cover opacity-30" 
+                />
+
+                <div 
+                    className="absolute inset-0" 
+                    style={{
+                        background: "radial-gradient(circle at 50% 30%, rgba(26, 26, 26, 0.4) 0%, rgba(0, 0, 0, 1) 100%)"
+                    }}
+                />
+            </div>
+
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px] z-[1]" />
 
             <div className="max-w-5xl mx-auto text-center relative z-10 flex flex-col items-center">
                 
-                {/* Badge de Apresentação */}
+
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -41,19 +57,19 @@ export default function Hero() {
                     </span>
                 </motion.div>
 
-                {/* Título Principal Impactante */}
+
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-white text-4xl sm:text-5xl md:text-7xl font-serif font-bold tracking-tight max-w-4xl leading-[1.15] mb-6"
+                    className="text-white text-4xl sm:text-5xl md:text-7xl font-serif font-bold tracking-tight max-w-4xl leading-[1.15] mb-6 drop-shadow-2xl"
                 >
                     Defesa patrimonial e jurídica sob o comando do{" "}
-                    <span className="text-[#C6A24C] italic font-normal">Dr. Marcus Vinícius</span> e{" "}
-                    <span className="text-[#C6A24C] italic font-normal">Dr. Renato Sanches</span>
+                    <span className="text-[#C6A24C] italic font-normal text-nowrap">Dr. Marcus Vinícius</span> e{" "}
+                    <span className="text-[#C6A24C] italic font-normal text-nowrap">Dr. Renato Sanches</span>
                 </motion.h1>
 
-                {/* Linha Divisória Elegante */}
+
                 <motion.div 
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
@@ -61,24 +77,23 @@ export default function Hero() {
                     className="h-px w-32 bg-gradient-to-r from-transparent via-[#C6A24C] to-transparent mb-8"
                 />
 
-                {/* Subtítulo / Proposta de Valor */}
+                {/* Subtítulo */}
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="text-slate-400 text-base md:text-xl max-w-2xl font-light leading-relaxed mb-12"
+                    className="text-slate-300 text-base md:text-xl max-w-2xl font-light leading-relaxed mb-12 drop-shadow-md"
                 >
                     Unindo mais de duas décadas de rigor técnico e atuação estratégica corporativa e familiar. Soluções de alta complexidade em Família, Sucessões, Empresarial e Tributário.
                 </motion.p>
 
-                {/* CTAs (Chamadas para Ação) */}
+                {/* CTAs */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.7 }}
                     className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
                 >
-                    {/* Botão Principal: WhatsApp */}
                     <a
                         href={whatsappUrl}
                         target="_blank"
@@ -92,10 +107,9 @@ export default function Hero() {
                         Agendar Consulta Sênior
                     </a>
 
-                    {/* Botão Secundário: Conhecer os Sócios */}
                     <button
                         onClick={scrollToContact}
-                        className="flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-2xl bg-transparent border border-white/10 text-white font-bold uppercase text-xs tracking-widest transition-all duration-300 hover:border-[#C6A24C]/50 hover:bg-white/5 active:scale-95 group"
+                        className="flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-bold uppercase text-xs tracking-widest transition-all duration-300 hover:border-[#C6A24C]/50 hover:bg-white/10 active:scale-95 group backdrop-blur-sm"
                     >
                         Canais de Atendimento
                         <ArrowRight size={14} className="text-[#C6A24C] group-hover:translate-x-1 transition-transform" />
@@ -103,8 +117,8 @@ export default function Hero() {
                 </motion.div>
             </div>
 
-            {/* Gradiente Inferior para Transição Suave entre Seções */}
-            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0a0a0b] to-transparent pointer-events-none" />
+            {/* Gradiente Inferior para Transição */}
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0a0a0b] to-transparent z-[2] pointer-events-none" />
         </section>
     );
 }

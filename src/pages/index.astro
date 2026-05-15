@@ -16,6 +16,7 @@ import imgCarlos from "../assets/adv4.jpg";
 import imgMariana from "../assets/advogada1.jpg";
 import imgRicardo from "../assets/adv3.jpg";
 import imgLogo from	"../assets/logo.png";
+import imgHero from	"../assets/bg-hero.jpg";
 
 
 import CardLinks from "@/components/CardLinks";
@@ -28,7 +29,7 @@ import AssociateCards from "@/components/Associates";
   <Navbar client:load imagePath={imgLogo.src} />
   <main>
     <div id="hero">
-      <Hero client:load />
+      <Hero client:load  imagePath={imgHero.src}/>
     </div>
 
     <div id="sobre">
