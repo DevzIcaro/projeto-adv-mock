@@ -17,19 +17,40 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Adicione/Atualize este passo para garantir o Node 22
+      # 1. Primeiro instalamos o Node 22 explicitamente
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'pnpm' # Otimiza o tempo de build
 
+      # 2. Instalamos o pnpm 9
       - name: Install pnpm
-        uses: pnpm/action-setup@v4 # Atualizei para v4 que é melhor para Node 22
+        uses: pnpm/action-setup@v4
         with:
-          version: 9 # Versão recomendada para projetos atuais
+          version: 9
 
-      - name: Install, build, and upload
-        uses: withastro/action@v3
+      # 3. Rodamos a instalação e o build MANUALMENTE
+      # Isso evita que a action do Astro tente usar o Node 20 padrão dela
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Astro
+        run: pnpm run build
+
+      # 4. Apenas subimos os arquivos gerados (que ficam na pasta dist)
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: .
-          package-manager: pnpm@9
+          path: ./dist # O Astro gera o site aqui por padrão
+          
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
