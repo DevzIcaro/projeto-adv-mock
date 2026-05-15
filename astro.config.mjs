@@ -8,8 +8,8 @@ export default defineConfig({
   integrations: [react()],
   
   // Adicione as configurações de deploy aqui
-  site: 'https://seu-usuario.github.io',
-  base: '/nome-do-seu-repositorio', // Importante se o repositório não for o principal
+  site: 'https://DevzIcaro.github.io',
+  base: '/projeto-adv-mock', // Importante se o repositório não for o principal
 
   vite: {
     plugins: [tailwindv4()],
