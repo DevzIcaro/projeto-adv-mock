@@ -7,7 +7,7 @@ const lawyers = [
     {
         name: "Dr. Carlos Eduardo Menezes",
         role: "Sócio Fundador | Direito Corporativo",
-        image: "./src/assets/carlos.png",
+        image: "./src/assets/adv4.jpg",
         whatsapp: "https://wa.me/5511999999999",
         maps: "https://maps.app.goo.gl/exemplo1",
         email: "mailto:carlos.menezes@exemplo.adv.br",
@@ -15,7 +15,7 @@ const lawyers = [
     {
         name: "Drª Mariana Cavalcanti",
         role: "Especialista | Direito Tributário",
-        image: "./src/assets/mariana.png",
+        image: "./src/assets/advogada1.jpg",
         whatsapp: "https://wa.me/5511999999999",
         maps: "https://maps.app.goo.gl/exemplo2",
         email: "mailto:mariana.cavalcanti@exemplo.adv.br",
@@ -23,7 +23,7 @@ const lawyers = [
     {
         name: "Dr. Ricardo Alencar Rocha",
         role: "Associado Senior | Propriedade Intelectual",
-        image: "./src/assets/ricardo.png",
+        image: "./src/assets/adv3.jpg",
         whatsapp: "https://wa.me/5511999999999",
         maps: "https://maps.app.goo.gl/exemplo3",
         email: "mailto:ricardo.alencar@exemplo.adv.br",

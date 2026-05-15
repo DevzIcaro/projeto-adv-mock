@@ -9,9 +9,10 @@ import RightProfileCard from "@/components/RightProfileCard";
 import ServiceAreas from "@/components/ServiceAreas";
 import Footer from "@/components/Footer";
 
-// IMPORTANTE: Para imagens em src/assets, o ideal é importar assim:
-import imgNatanael from "../assets/natanael.png";
-import imgGabriela from "../assets/gabriela.png";
+// Importação das imagens locais da pasta src/assets
+import imgMarcus from "../assets/adv2.jpg";
+import imgRenato from "../assets/adv1.jpg";
+
 import CardLinks from "@/components/CardLinks";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import TeamSection from "@/components/Contacts";
@@ -35,29 +36,16 @@ import AssociateCards from "@/components/Associates";
         name="Diego Natanael Vicente"
         role="Sócio Fundador / +15 anos de experiência"
         description="Especialista em Direito Empresarial e do Trabalho."
-        quote="Quando temos problemas, na mesma medida e
-			proporção temos um sonho, o de ter o problema
-			resolvido. Então o advogado é alguém que transforma
-			o sonho em objetivo, e empenhará e dedicará todas
-			as suas forças para o que o sonho se torne realidade.
-			É com foco absoluto na missão confiada, para além
-			da advocacia, o objetivo é assessorar na realização
-			do sonho de receber aquela dívida, sair daquela
-			sociedade."
-        imagePath={imgNatanael.src}
+        quote="Quando temos problemas, na mesma medida e proporção temos um sonho, o de ter o problema resolvido. Então o advogado é alguém que transforma o sonho em objetivo, e empenhará e dedicará todas as suas forças para o que o sonho se torne realidade. É com foco absoluto na missão confiada, para além da advocacia, o objetivo é assessorar na realização do sonho de receber aquela dívida, sair daquela sociedade."
+        imagePath={imgMarcus.src}
       />
       <RightProfileCard
         client:load
         name="Gabriela Rufatto da Cruz"
         role="Especialista em Regularização Imobiliária / +5 anos de experiência"
         description="Especialista em Regularização Imobiliária"
-        quote="Há mais de 05 anos no mercado imobiliário,
-			desburocratizando pilhas de papéis em registro, com
-			único intuito de proteger a tão sonhada casa própria,
-			os imóveis de aluguéis que se tornarão a
-			aposentadoria tranquila, os empreendimentos, que
-			passam a ser também, novos sonhos."
-        imagePath={imgGabriela.src}
+        quote="Há mais de 05 anos no mercado imobiliário, desburocratizando pilhas de papéis em registro, com único intuito de proteger a tão sonhada casa própria, os imóveis de aluguéis que se tornarão a aposentadoria tranquila, os empreendimentos, que passam a ser também, novos sonhos."
+        imagePath={imgRenato.src}
       />
     </div>
     
@@ -76,11 +64,11 @@ import AssociateCards from "@/components/Associates";
     <div id="contatos">
       <TeamSection client:load />
     </div>
+
     <div id="associados">
       <AssociateCards client:load />
     </div>
-    <div class="">
-      <Footer client:load>
-    </div>
+
+    <Footer client:load />
   </main>
 </Layout>

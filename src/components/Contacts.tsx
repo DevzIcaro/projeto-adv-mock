@@ -6,23 +6,23 @@ import { IoLogoInstagram } from "react-icons/io5";
 
 const lawyers = [
     {
-        name: "Diego Natanael Vicente",
-        role: "Sócio Fundador",
-        experience: "+15 Anos de Experiência",
-        bio: "Especialista em transformar desafios jurídicos complexos em objetivos claros e resultados concretos.",
-        image: "./src/assets/natanael.png", // Substitua pelo caminho real
-        whatsapp: "https://wa.me/5517981193467",
+        name: "Dr. Marcus Vinícius Toledo",
+        role: "Sócio Sênior | Família e Sucessões",
+        experience: "+20 Anos de Experiência",
+        bio: "Especialista em planejamento sucessório e resoluções de conflitos familiares complexos, priorizando sempre a segurança jurídica e a preservação do patrimônio familiar.",
+        image: "./src/assets/adv1.jpg",
+        whatsapp: "https://wa.me/5517",
         maps: "https://maps.app.goo.gl/EiGxT8JE4pgAsDJT9",
         email: "mailto:dnv.advocacia.@gmail.com",
         instagram: "https://www.instagram.com/dnv.advocacia"
     },
     {
-        name: "Gabriela Rufatto da Cruz",
-        role: "Especialista Imobiliária",
-        experience: "+5 Anos de Experiência",
-        bio: "Focada em proteger o patrimônio e desburocratizar a regularização de imóveis com agilidade.",
-        image: "./src/assets/gabriela.png", // Substitua pelo caminho real
-        whatsapp: "https://wa.me/5517981193467",
+        name: "Dr. Renato Sanches Alencar",
+        role: "Sócio | Direito Empresarial e Tributário",
+        experience: "+15 Anos de Experiência",
+        bio: "Consultor estratégico especializado em blindagem patrimonial, defesas fiscais complexas e estruturação societária para empresas de médio e grande porte.",
+        image: "./src/assets/adv2.jpg",
+        whatsapp: "https://wa.me/5517",
         maps: "https://maps.app.goo.gl/EiGxT8JE4pgAsDJT9",
         email: "mailto:dnv.advocacia.@gmail.com",
         instagram: "https://www.instagram.com/dnv.advocacia"
@@ -48,7 +48,7 @@ export default function ContactCards() {
                     </h3>
                 </div>
 
-                {/* Grid de Cards */}
+                {/* Grid de Cards (2 colunas para os 2 advogados) */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     {lawyers.map((lawyer, index) => (
                         <motion.div
@@ -59,12 +59,12 @@ export default function ContactCards() {
                             transition={{ delay: index * 0.2 }}
                             className="group relative bg-[#0a0a0b] border border-white/10 rounded-[35px] p-5 transition-all duration-500 hover:border-[#C6A24C]/40 hover:shadow-[0_20px_50px_rgba(198,162,76,0.1)]"
                         >
-                            {/* Container da Imagem (Onde estava a cesta) */}
+                            {/* Container da Imagem */}
                             <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[25px] mb-6">
                                 <img
                                     src={lawyer.image}
                                     alt={lawyer.name}
-                                    className="w-full h-full object-cover  group-hover:scale-105 transition-all duration-700"
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                                 />
                                 {/* Overlay de Gradiente */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-transparent to-transparent opacity-60" />
@@ -77,64 +77,73 @@ export default function ContactCards() {
                                 </div>
                             </div>
 
-                            {/* Informações (Product Name / Desc / Price) */}
+                            {/* Informações */}
                             <div className="px-2 pb-2">
                                 <div className="flex justify-between items-start mb-3">
                                     <div>
                                         <h4 className="text-white text-2xl font-serif font-bold group-hover:text-[#C6A24C] transition-colors">
                                             {lawyer.name}
                                         </h4>
-                                        <p className="text-[#C6A24C] text-xs font-bold uppercase tracking-tighter">
+                                        <p className="text-[#C6A24C] text-xs font-bold uppercase tracking-tighter mt-1">
                                             {lawyer.role}
                                         </p>
                                     </div>
-                                    <ArrowUpRight className="text-white/20 group-hover:text-[#C6A24C] transition-colors" size={24} />
+                                    <ArrowUpRight className="text-white/20 group-hover:text-[#C6A24C] transition-colors flex-shrink-0" size={24} />
                                 </div>
 
-                                <p className="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">
-                                    {lawyer.bio}
-                                </p>
+                                {/* Box de Bio com altura mínima para manter os botões alinhados */}
+                                <div className="min-h-[72px] mb-8">
+                                    <p className="text-slate-400 text-sm leading-relaxed line-clamp-3">
+                                        {lawyer.bio}
+                                    </p>
+                                </div>
 
-                                {/* Botão de Ação (Add to Cart -> Falar no WhatsApp) */}
-                                <div className="flex flex-row flex-wrap justify-between">
+                                {/* Botões de Ação Dinâmicos */}
+                                <div className="flex flex-row gap-3">
                                     <a
                                         href={lawyer.whatsapp}
                                         target="_blank"
-                                        className="flex items-center justify-center m-1 gap-3 w-[80px] py-4 rounded-2xl text-white font-bold uppercase text-xs tracking-widest transition-all active:scale-95 shadow-lg shadow-black/30 hover:brightness-110"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center justify-center flex-1 py-4 rounded-2xl text-white font-bold uppercase text-xs tracking-widest transition-all active:scale-95 shadow-lg shadow-black/30 hover:brightness-110"
                                         style={{
                                             background: "linear-gradient(135deg, #054640 0%, #005d4b 45%, #06625f 70%, #aaaaaa 100%)"
-                                        }}                                    >
+                                        }}
+                                    >
                                         <MessageCircle size={18} />
                                     </a>
                                     <a
                                         href={lawyer.maps}
                                         target="_blank"
-                                        className="flex items-center justify-center m-1 gap-3 w-[80px] py-4 rounded-2xl text-white font-bold uppercase text-xs tracking-widest transition-all active:scale-105 shadow-lg shadow-black/20 hover:brightness-110"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center justify-center flex-1 py-4 rounded-2xl text-white font-bold uppercase text-xs tracking-widest transition-all active:scale-105 shadow-lg shadow-black/20 hover:brightness-110"
                                         style={{
                                             background: "linear-gradient(135deg, #4a80f5 0%, #9bbff4 45%, #a7cdf2 55%, #bbdaa4 70%, #f18d00 100%)"
-                                        }}                                    >
+                                        }}
+                                    >
                                         <TbMapPin size={18} />
                                     </a>
                                     <a
                                         href={lawyer.email}
                                         target="_blank"
-                                        className="flex items-center justify-center m-1 gap-3 w-[80px] py-4 rounded-2xl text-white font-bold uppercase text-xs tracking-widest transition-all active:scale-95 shadow-lg shadow-black/30 hover:brightness-110"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center justify-center flex-1 py-4 rounded-2xl text-white font-bold uppercase text-xs tracking-widest transition-all active:scale-95 shadow-lg shadow-black/30 hover:brightness-110"
                                         style={{
                                             background: "linear-gradient(135deg, #012d6e 0%, #0064b0 50%, #aaaaaa 100%)"
-                                        }}                                    >
+                                        }}
+                                    >
                                         <FiMail size={18} />
                                     </a>
                                     <a
                                         href={lawyer.instagram}
                                         target="_blank"
-                                        className="flex items-center justify-center m-1 gap-3 w-[80px] py-4 rounded-2xl text-white font-bold uppercase text-xs tracking-widest transition-all active:scale-95 shadow-lg shadow-black/20 hover:opacity-90"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center justify-center flex-1 py-4 rounded-2xl text-white font-bold uppercase text-xs tracking-widest transition-all active:scale-95 shadow-lg shadow-black/20 hover:opacity-90"
                                         style={{
                                             background: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)"
                                         }}
                                     >
                                         <IoLogoInstagram size={18} />
                                     </a>
-
                                 </div>
                             </div>
                         </motion.div>

@@ -61,7 +61,7 @@ export default function Navbar() {
                 <a href="#hero" onClick={(e) => scrollToSection(e, "#hero")} className="relative z-[201]">
                     <img 
                         src="./src/assets/logo.png" 
-                        alt="Logo" 
+                        alt="Toledo & Alencar Advocacia Sênior" 
                         className="h-10 md:h-12 w-auto object-contain transition-transform hover:scale-105"
                     />
                 </a>
@@ -123,12 +123,13 @@ export default function Navbar() {
                                 ))}
                             </div>
                             
+                            {/* Rodapé Interno do Menu Mobile Atualizado */}
                             <div className="mt-auto pb-6">
                                 <p className="text-[#C6A24C] text-xs uppercase tracking-[0.3em] font-bold">
-                                    Natanael Vicente & Rufatto
+                                    Toledo & Alencar
                                 </p>
-                                <p className="text-white/20 text-[10px] uppercase mt-1">
-                                    DNV Advocacia
+                                <p className="text-white/20 text-[10px] uppercase mt-1 tracking-widest">
+                                    Advocacia Sênior
                                 </p>
                             </div>
                         </motion.div>

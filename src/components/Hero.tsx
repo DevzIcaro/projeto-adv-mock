@@ -1,89 +1,110 @@
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { MessageCircle, ShieldCheck, ArrowRight } from "lucide-react";
 
-export default function HeroBanner() {
-  return (
-    // SEÇÃO PRINCIPAL MODIFICADA: Adicionado o fundo com imagem
-    <section className="relative w-full py-20 px-4 md:px-10 flex justify-center overflow-hidden">
-      {/* IMAGEM DE FUNDO DA SEÇÃO: Com efeito de desfoque sutil no fundo */}
-      <div
-        className="absolute inset-0 z-0 bg-[url('./src/assets/bg-hero.jpg')] bg-cover bg-center bg-no-repeat"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-none" /> {/* Overlay escuro e blur sutil no fundo */}
-      </div>
+export default function Hero() {
+    const whatsappUrl = "https://wa.me/5517";
 
-      {/* Container Principal Estilo Card (Baseado na imagem do gráfico) MODIFICADO: Transparência e Blur */}
-      <div
-        className={cn(
-          "relative z-10 w-full max-w-6xl overflow-hidden flex flex-col md:flex-row items-center min-h-[500px] border",
-          "rounded-[40px] shadow-2xl transition-all duration-300",
-          "bg-[#0a0a0b]/40 backdrop-blur-md", // TRANSPARÊNCIA E BLUR NO CARD
-          "border-white/10" // BORDA SUTIL
-        )}
-      >
+    const scrollToContact = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        const elem = document.getElementById("contatos");
+        if (elem) {
+            window.scrollTo({
+                top: elem.offsetTop - 80,
+                behavior: "smooth",
+            });
+        }
+    };
 
-        {/* Lado Esquerdo: Imagem da Balança (Substituindo o gráfico) - Mantido */}
-        <div className="w-full md:w-1/2 relative bg-transparent overflow-hidden group h-full"> {/* bg-transparent para o blur funcionar */}
-          <motion.div
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2 }}
-            className="h-full w-full flex items-center justify-center p-10 md:p-16"
-          >
-            {/* Efeito de iluminação de fundo mais espalhado - Mantido */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/10 to-transparent z-10 rounded-full blur-[80px]" />
+    return (
+        <section
+            id="hero"
+            className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-24 px-6"
+            style={{
+                background: "radial-gradient(circle at 50% 30%, #1a1a1a 0%, #000000 100%)"
+            }}
+        >
+            {/* Linhas de Grade de Fundo Sutis (Visual Premium) */}
+            <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px]" />
 
-            <img
-              src="../src/assets/logo.png"
-              alt="Balança da Justiça"
-              className={cn(
-                "w-full h-full object-contain",
-                "scale-150 md:scale-125",
-                "brightness-125 contrast-110",
-                "transition-transform duration-1000 group-hover:scale-[1.3]"
-              )}
-            />
-          </motion.div>
-        </div>
+            <div className="max-w-5xl mx-auto text-center relative z-10 flex flex-col items-center">
+                
+                {/* Badge de Apresentação */}
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="flex items-center gap-2 bg-white/5 border border-[#C6A24C]/30 px-4 py-2 rounded-full mb-8 backdrop-blur-md"
+                >
+                    <ShieldCheck className="text-[#C6A24C]" size={16} />
+                    <span className="text-white/80 text-[11px] font-bold uppercase tracking-[0.2em]">
+                        Toledo & Alencar Advocacia Sênior
+                    </span>
+                </motion.div>
 
-        {/* Lado Direito: Conteúdo Textual - Mantido */}
-        <div className="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center text-left">
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Natanael Vicente & <br />
-              <span className="text-[#D4AF37]">Rufatto Advocacia</span>
-            </h1>
+                {/* Título Principal Impactante */}
+                <motion.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="text-white text-4xl sm:text-5xl md:text-7xl font-serif font-bold tracking-tight max-w-4xl leading-[1.15] mb-6"
+                >
+                    Defesa patrimonial e jurídica sob o comando do{" "}
+                    <span className="text-[#C6A24C] italic font-normal">Dr. Marcus Vinícius</span> e{" "}
+                    <span className="text-[#C6A24C] italic font-normal">Dr. Renato Sanches</span>
+                </motion.h1>
 
-            <p className="text-slate-400 text-lg md:text-xl leading-relaxed mb-10 max-w-md">
-              Especialistas em Direito Empresarial, do Trabalho e
-              <span className="text-slate-200"> Regularização Imobiliária</span> com foco em menor custo e agilidade registral.
-            </p>
+                {/* Linha Divisória Elegante */}
+                <motion.div 
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 1, delay: 0.4 }}
+                    className="h-px w-32 bg-gradient-to-r from-transparent via-[#C6A24C] to-transparent mb-8"
+                />
 
-            {/* Botão Estilo "Try the Earnings Calculator" - Mantido */}
-            <motion.a
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              href="https://wa.me/5517981193467"
-              target="_blank"
-              className={cn(
-                "inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-black transition-all",
-              )}
-              style={{
-                background: "linear-gradient(135deg, #1abfa3 80%)"
-              }}
-            >
-              <MessageCircle className="w-5 h-5" />
-              CONVERSAR COM UM ESPECIALISTA
-            </motion.a>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
+                {/* Subtítulo / Proposta de Valor */}
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    className="text-slate-400 text-base md:text-xl max-w-2xl font-light leading-relaxed mb-12"
+                >
+                    Unindo mais de duas décadas de rigor técnico e atuação estratégica corporativa e familiar. Soluções de alta complexidade em Família, Sucessões, Empresarial e Tributário.
+                </motion.p>
+
+                {/* CTAs (Chamadas para Ação) */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                    className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+                >
+                    {/* Botão Principal: WhatsApp */}
+                    <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded-2xl text-white font-bold uppercase text-xs tracking-widest transition-all duration-300 active:scale-95 shadow-xl shadow-black/40 hover:brightness-110 hover:-translate-y-0.5 group"
+                        style={{
+                            background: "linear-gradient(135deg, #054640 0%, #005d4b 45%, #06625f 70%, #888888 100%)"
+                        }}
+                    >
+                        <MessageCircle size={18} className="group-hover:rotate-12 transition-transform" />
+                        Agendar Consulta Sênior
+                    </a>
+
+                    {/* Botão Secundário: Conhecer os Sócios */}
+                    <button
+                        onClick={scrollToContact}
+                        className="flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-2xl bg-transparent border border-white/10 text-white font-bold uppercase text-xs tracking-widest transition-all duration-300 hover:border-[#C6A24C]/50 hover:bg-white/5 active:scale-95 group"
+                    >
+                        Canais de Atendimento
+                        <ArrowRight size={14} className="text-[#C6A24C] group-hover:translate-x-1 transition-transform" />
+                    </button>
+                </motion.div>
+            </div>
+
+            {/* Gradiente Inferior para Transição Suave entre Seções */}
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0a0a0b] to-transparent pointer-events-none" />
+        </section>
+    );
 }
