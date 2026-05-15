@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-  workflow_dispatch: # Isso permite que você clique em um botão para rodar manualmente
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -17,13 +17,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+      # Adicione/Atualize este passo para garantir o Node 22
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          version: 8
+          node-version: 22
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4 # Atualizei para v4 que é melhor para Node 22
+        with:
+          version: 9 # Versão recomendada para projetos atuais
 
       - name: Install, build, and upload
         uses: withastro/action@v3
         with:
           path: .
-          package-manager: pnpm@8
+          package-manager: pnpm@9
