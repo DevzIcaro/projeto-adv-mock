@@ -1,0 +1,127 @@
+import React from "react";
+import { MapPin, Phone, Mail, ExternalLink } from "lucide-react";
+import { IoLogoInstagram } from "react-icons/io5";
+
+const links = [
+    { name: "Home", href: "#hero" },
+    { name: "Sobre Nós", href: "#sobre" },
+    { name: "Advogados", href: "#advogados" },
+    { name: "Áreas de Atuação", href: "#areas" },
+    { name: "Registros", href: "#registros" },
+    { name: "Avaliações", href: "#avaliacoes" },
+    { name: "Contatos", href: "#contatos" },
+    { name: "Associados", href: "#associados" },
+];
+
+export default function Footer() {
+    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const targetId = href.replace("#", "");
+        const elem = document.getElementById(targetId);
+        if (elem) {
+            window.scrollTo({
+                top: elem.offsetTop - 80,
+                behavior: "smooth",
+            });
+        }
+    };
+
+    return (
+        <footer className="bg-[#0a0a0b] border-t border-white/5 pt-16 pb-8">
+            <div className="container mx-auto px-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+                    {/* Coluna 1: Logo e Sócios */}
+                    <div className="flex flex-col gap-6">
+                        <img
+                            src="./src/assets/logo.png"
+                            alt="Logo DNV"
+                            className="h-12 w-fit object-contain opacity-90"
+                        />
+                        <div className="space-y-1">
+                            <h3 className="text-[#C6A24C] font-serif text-lg leading-tight">
+                                Natanael Vicente <br /> & Gabriela Rufatto
+                            </h3>
+                            <p className="text-white/40 text-[10px] uppercase tracking-[0.2em]">
+                                Advocacia & Consultoria
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Coluna 2: Navegação (Links Rápidos) */}
+                    <div className="flex flex-col gap-6">
+                        <h4 className="text-white font-medium text-sm uppercase tracking-widest">Navegação</h4>
+                        <nav className="flex flex-col gap-3">
+                            {links.map((link) => (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    target="_blank"
+                                    onClick={(e) => scrollToSection(e, link.href)}
+                                    className="text-white/50 hover:text-[#1abfa3] text-sm transition-colors duration-300 flex items-center gap-2 group"
+                                >
+                                    <span className="h-px w-0 bg-[#1abfa3] transition-all duration-300 group-hover:w-3" />
+                                    {link.name}
+                                </a>
+                            ))}
+                        </nav>
+                    </div>
+
+                    {/* Coluna 3: Contatos */}
+                    <div className="flex flex-col gap-6">
+                        <h4 className="text-white font-medium text-sm uppercase tracking-widest">Contatos</h4>
+                        <div className="flex flex-col gap-4">
+                            <div className="flex items-start gap-3 group">
+                                <a href="https://maps.app.goo.gl/SrG2ubje2nvcs65E9" target="_blank" className="flex items-center gap-3 group hover:text-white transition-colors" >
+                                    <MapPin size={18} className="text-[#1abfa3] shrink-0 mt-1" />
+                                    <span className="text-white/60 text-sm leading-relaxed">
+                                        Rua SETE, nº 590, Centro.<br /> Santa Fé - SP
+                                    </span>
+                                </a>
+                            </div>
+                            <a href="https://wa.me/5517981193467" target="_blank" className="flex items-center gap-3 group hover:text-white transition-colors">
+                                <Phone size={18} className="text-[#1abfa3]" />
+                                <span className="text-white/60 text-sm">(17) 98119-3467</span>
+                            </a>
+                            <a href="https://instagram.com/nvr.advocacia" target="_blank" className="flex items-center gap-3 group hover:text-white transition-colors">
+                                <IoLogoInstagram size={18} className="text-[#1abfa3]" />
+                                <span className="text-white/60 text-sm">nvr.advocacia</span>
+                            </a>
+                            <a href="mailto:dnv.advocacia.@gmail.com" target="_blank" className="flex items-center gap-3 group hover:text-white transition-colors">
+                                <Mail size={18} className="text-[#1abfa3]" />
+                                <span className="text-white/60 text-sm break-all">dnv.advocacia.@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Coluna 4: Extra / Branding */}
+                    <div className="flex flex-col gap-6">
+                        <h4 className="text-white font-medium text-sm uppercase tracking-widest">Excelência</h4>
+                        <p className="text-white/40 text-sm leading-relaxed italic font-serif">
+                            "Compromisso com a integridade e a justiça em cada causa defendida."
+                        </p>
+                        <div className="h-px w-full bg-gradient-to-r from-[#C6A24C]/50 to-transparent" />
+                    </div>
+                </div>
+
+                {/* Linha de Copyright */}
+                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-white/30 text-[11px] tracking-wider uppercase">
+                        © 2026 DNV Advocacia. Todos os direitos reservados.
+                    </p>
+
+                    <div className="flex items-center gap-2 text-white/30 text-[11px] uppercase tracking-wider">
+                        <span>Desenvolvido por</span>
+                        <a
+                            href="https://wa.me/5517992641230"
+                            target="_blank"
+                            className="text-white/60 hover:text-[#1abfa3] transition-colors flex items-center gap-1 font-bold"
+                        >
+                            Ícaro Carneiro <ExternalLink size={10} />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    );
+}

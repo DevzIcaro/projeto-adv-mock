@@ -1,11 +1,86 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar";
+import Hero from "@/components/Hero";
+import AboutUs from "@/components/AboutUs";
+import LeftProfileCard from "@/components/LeftProfileCard";
+import RightProfileCard from "@/components/RightProfileCard";
+import ServiceAreas from "@/components/ServiceAreas";
+import Footer from "@/components/Footer";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// IMPORTANTE: Para imagens em src/assets, o ideal é importar assim:
+import imgNatanael from "../assets/natanael.png";
+import imgGabriela from "../assets/gabriela.png";
+import CardLinks from "@/components/CardLinks";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import TeamSection from "@/components/Contacts";
+import AssociateCards from "@/components/Associates";
 ---
 
 <Layout>
-	<Welcome />
+  <Navbar client:load />
+  <main>
+    <div id="hero">
+      <Hero client:load />
+    </div>
+
+    <div id="sobre">
+      <AboutUs client:load />
+    </div>
+
+    <div id="advogados">
+      <LeftProfileCard
+        client:load
+        name="Diego Natanael Vicente"
+        role="Sócio Fundador / +15 anos de experiência"
+        description="Especialista em Direito Empresarial e do Trabalho."
+        quote="Quando temos problemas, na mesma medida e
+			proporção temos um sonho, o de ter o problema
+			resolvido. Então o advogado é alguém que transforma
+			o sonho em objetivo, e empenhará e dedicará todas
+			as suas forças para o que o sonho se torne realidade.
+			É com foco absoluto na missão confiada, para além
+			da advocacia, o objetivo é assessorar na realização
+			do sonho de receber aquela dívida, sair daquela
+			sociedade."
+        imagePath={imgNatanael.src}
+      />
+      <RightProfileCard
+        client:load
+        name="Gabriela Rufatto da Cruz"
+        role="Especialista em Regularização Imobiliária / +5 anos de experiência"
+        description="Especialista em Regularização Imobiliária"
+        quote="Há mais de 05 anos no mercado imobiliário,
+			desburocratizando pilhas de papéis em registro, com
+			único intuito de proteger a tão sonhada casa própria,
+			os imóveis de aluguéis que se tornarão a
+			aposentadoria tranquila, os empreendimentos, que
+			passam a ser também, novos sonhos."
+        imagePath={imgGabriela.src}
+      />
+    </div>
+    
+    <div id="areas">
+      <ServiceAreas client:load />
+    </div>
+
+    <div id="registros">
+      <CardLinks client:load />
+    </div>
+
+    <div id="avaliacoes">
+      <TestimonialsCarousel client:load />
+    </div>
+
+    <div id="contatos">
+      <TeamSection client:load />
+    </div>
+    <div id="associados">
+      <AssociateCards client:load />
+    </div>
+    <div class="">
+      <Footer client:load>
+    </div>
+  </main>
 </Layout>
