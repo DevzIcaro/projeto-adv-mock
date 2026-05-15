@@ -12,6 +12,12 @@ interface LinkCardProps {
   }[];
 }
 
+const defaultBG = [
+  {
+    backgroundImage: "./src/assets/biblioteca.jpg",
+  }
+]
+
 const defaultLinks = [
   {
     title: "Contrato de Gaveta e as Fraudes",
@@ -30,7 +36,7 @@ const defaultLinks = [
 
 export default function CardLinks({ 
   links = defaultLinks, 
-  backgroundImage 
+  backgroundImage = defaultBG[0].backgroundImage
 }: LinkCardProps) {
   return (
     <section className="relative w-full py-24 px-4 overflow-hidden bg-black">
