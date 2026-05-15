@@ -2,6 +2,10 @@ import React from "react";
 import { MapPin, Phone, Mail, ExternalLink } from "lucide-react";
 import { IoLogoInstagram } from "react-icons/io5";
 
+interface FooterProps {
+    logoPath?: string; // Propriedade para receber a logo do Astro
+}
+
 const links = [
     { name: "Home", href: "#hero" },
     { name: "Sobre Nós", href: "#sobre" },
@@ -13,7 +17,7 @@ const links = [
     { name: "Associados", href: "#associados" },
 ];
 
-export default function Footer() {
+export default function Footer({ logoPath }: FooterProps) {
     const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
         const targetId = href.replace("#", "");
@@ -33,11 +37,13 @@ export default function Footer() {
 
                     {/* Coluna 1: Logo e Sócios Proprietários */}
                     <div className="flex flex-col gap-6">
-                        <img
-                            src="./src/assets/logo.png"
-                            alt="Logo DNV"
-                            className="h-12 w-fit object-contain opacity-90"
-                        />
+                        {logoPath && (
+                            <img
+                                src={logoPath}
+                                alt="Logo DNV"
+                                className="h-12 w-fit object-contain opacity-90"
+                            />
+                        )}
                         <div className="space-y-2">
                             <h3 className="text-[#C6A24C] font-serif text-lg leading-snug">
                                 Dr. Marcus Vinícius <br /> & Dr. Renato Sanches
@@ -48,7 +54,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Coluna 2: Navegação (Links Rápidos) */}
+                    {/* Coluna 2: Navegação */}
                     <div className="flex flex-col gap-6">
                         <h4 className="text-white font-medium text-sm uppercase tracking-widest">Navegação</h4>
                         <nav className="flex flex-col gap-3">
@@ -66,46 +72,38 @@ export default function Footer() {
                         </nav>
                     </div>
 
-                    {/* Coluna 3: Contatos Unificados do Escritório */}
+                    {/* Coluna 3: Contatos */}
                     <div className="flex flex-col gap-6">
                         <h4 className="text-white font-medium text-sm uppercase tracking-widest">Contatos</h4>
                         <div className="flex flex-col gap-4">
-                            <div className="flex items-start gap-3 group">
-                                <a 
-                                    href="https://maps.app.goo.gl/EiGxT8JE4pgAsDJT9" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    className="flex items-center gap-3 group text-white/60 hover:text-[#C6A24C] transition-colors"
-                                >
-                                    <MapPin size={18} className="text-[#C6A24C] shrink-0 mt-1" />
-                                    <span className="text-sm leading-relaxed">
-                                        Rua SETE, nº 590, Centro.<br /> Santa Fé do Sul - SP
-                                    </span>
-                                </a>
-                            </div>
                             <a 
-                                href="https://wa.me/5517" 
+                                href="https://maps.app.goo.gl/EiGxT8JE4pgAsDJT9" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
-                                className="flex items-center gap-3 group text-white/60 hover:text-[#C6A24C] transition-colors"
+                                className="flex items-start gap-3 group text-white/60 hover:text-[#C6A24C] transition-colors"
+                            >
+                                <MapPin size={18} className="text-[#C6A24C] shrink-0 mt-1" />
+                                <span className="text-sm leading-relaxed">
+                                    Rua SETE, nº 590, Centro.<br /> Santa Fé do Sul - SP
+                                </span>
+                            </a>
+                            <a 
+                                href="https://wa.me/5517" 
+                                className="flex items-center gap-3 text-white/60 hover:text-[#C6A24C] transition-colors"
                             >
                                 <Phone size={18} className="text-[#C6A24C]" />
                                 <span className="text-sm">(17) 98119-3467</span>
                             </a>
                             <a 
                                 href="https://www.instagram.com/dnv.advocacia" 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                className="flex items-center gap-3 group text-white/60 hover:text-[#C6A24C] transition-colors"
+                                className="flex items-center gap-3 text-white/60 hover:text-[#C6A24C] transition-colors"
                             >
                                 <IoLogoInstagram size={18} className="text-[#C6A24C]" />
                                 <span className="text-sm">dnv.advocacia</span>
                             </a>
                             <a 
                                 href="mailto:dnv.advocacia.@gmail.com" 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                className="flex items-center gap-3 group text-white/60 hover:text-[#C6A24C] transition-colors"
+                                className="flex items-center gap-3 text-white/60 hover:text-[#C6A24C] transition-colors"
                             >
                                 <Mail size={18} className="text-[#C6A24C]" />
                                 <span className="text-sm break-all">dnv.advocacia.@gmail.com</span>
@@ -113,7 +111,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Coluna 4: Extra / Branding */}
+                    {/* Coluna 4: Branding */}
                     <div className="flex flex-col gap-6">
                         <h4 className="text-white font-medium text-sm uppercase tracking-widest">Excelência</h4>
                         <p className="text-white/40 text-sm leading-relaxed italic font-serif">
@@ -123,7 +121,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Linha de Copyright */}
+                {/* Copyright */}
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-white/30 text-[11px] tracking-wider uppercase">
                         © {new Date().getFullYear()} DNV Advocacia. Todos os direitos reservados.
