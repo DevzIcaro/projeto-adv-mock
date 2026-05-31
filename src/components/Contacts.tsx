@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageCircle, ArrowUpRight } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { TbMapPin } from "react-icons/tb";
 import { FiMail } from "react-icons/fi";
 import { IoLogoInstagram } from "react-icons/io5";
