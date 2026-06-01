@@ -74,14 +74,14 @@ export default function Footer({ logoPath }: FooterProps) {
                         <h4 className="text-white font-medium text-sm uppercase tracking-widest">Contatos</h4>
                         <div className="flex flex-col gap-4">
                             <a 
-                                href="https://maps.app.goo.gl/EiGxT8JE4pgAsDJT9" 
+                                href="https://maps.app.goo.gl/" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 className="flex items-start gap-3 group text-white/60 hover:text-[#C6A24C] transition-colors"
                             >
                                 <MapPin size={18} className="text-[#C6A24C] shrink-0 mt-1" />
                                 <span className="text-sm leading-relaxed">
-                                    Rua SETE, nº 590, Centro.<br /> Santa Fé do Sul - SP
+                                    Rua joao carlos, nº 90, Zona Sul.<br />  SP
                                 </span>
                             </a>
                             <a 
@@ -89,21 +89,21 @@ export default function Footer({ logoPath }: FooterProps) {
                                 className="flex items-center gap-3 text-white/60 hover:text-[#C6A24C] transition-colors"
                             >
                                 <Phone size={18} className="text-[#C6A24C]" />
-                                <span className="text-sm">(17) 98119-3467</span>
+                                <span className="text-sm">(17) 98999-9999</span>
                             </a>
                             <a 
-                                href="https://www.instagram.com/dnv.advocacia" 
+                                href="https://www.instagram.com" 
                                 className="flex items-center gap-3 text-white/60 hover:text-[#C6A24C] transition-colors"
                             >
                                 <IoLogoInstagram size={18} className="text-[#C6A24C]" />
-                                <span className="text-sm">dnv.advocacia</span>
+                                <span className="text-sm">advocacia</span>
                             </a>
                             <a 
-                                href="mailto:dnv.advocacia.@gmail.com" 
+                                href="mailto:advocacia.@hotmail.com" 
                                 className="flex items-center gap-3 text-white/60 hover:text-[#C6A24C] transition-colors"
                             >
                                 <Mail size={18} className="text-[#C6A24C]" />
-                                <span className="text-sm break-all">dnv.advocacia.@gmail.com</span>
+                                <span className="text-sm break-all">advocacia.@hotmail.com</span>
                             </a>
                         </div>
                     </div>
@@ -119,7 +119,7 @@ export default function Footer({ logoPath }: FooterProps) {
 
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-white/30 text-[11px] tracking-wider uppercase">
-                        © {new Date().getFullYear()} DNV Advocacia. Todos os direitos reservados.
+                        © {new Date().getFullYear()} Advocacia. Todos os direitos reservados.
                     </p>
 
                     <div className="flex items-center gap-2 text-white/30 text-[11px] uppercase tracking-wider">
